@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SelectField from '../common/form/selectField';
 import TextField from '../common/form/textField';
 import colors from '../../constants/colors.json';
 import useForm from '../../hooks/useForm';
+import { useQualities } from '../../hooks/useQualities';
 
-const QualityForm = ({ data, onSubmit }) => {
-  console.log(data);
-  const { handeleSubmit, form, handleChange } = useForm(data, onSubmit);
+const QualityForm = ({ onSubmit }) => {
+  const { handeleSubmit, form, handleChange } = useForm({}, onSubmit);
+  const d = useQualities();
+  console.log('data from form: ', d);
   return (
     <form onSubmit={handeleSubmit}>
       <TextField label="Наименование" name="name" onChange={handleChange} value={form.name || ''} />
