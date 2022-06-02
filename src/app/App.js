@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Container from './components/common/container';
 import NavBar from './components/ui/NavBar';
@@ -12,6 +12,8 @@ const getRoutes = (routes) => {
     return <Route path={prop.path} component={prop.component} key={key} />;
   });
 };
+
+export default App;
 
 function App() {
   return (
@@ -29,5 +31,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
